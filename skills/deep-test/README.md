@@ -13,8 +13,7 @@ this part:
 2. Click the green **Code** button → **Download ZIP**
 3. Extract the ZIP anywhere (e.g. your Desktop)
 4. Inside it, find **`skills\deep-test\`** — that's this exact folder, with
-   these 4 files: `README.md` (this one), `SKILL.md`, `DEEP_TESTING_METHOD.md`,
-   `deep_test_kit.py`
+   these 3 files: `README.md` (this one), `SKILL.md`, `deep_test_kit.py`
 
 (Comfortable with git instead? `git clone https://github.com/alex-tykhon-gh/nl2sql_documentation.git` does the same thing.)
 
@@ -33,4 +32,4 @@ already looks in — pick one:
 Open Claude Code in your own plugin's project (or restart it if it was
 already open) and just ask it to test your plugin — e.g. *"deep-test my
 plugin before I submit it."* Full detail on what it actually checks is in
-`DEEP_TESTING_METHOD.md`, next to this file.
+`SKILL.md`, next to this file.
