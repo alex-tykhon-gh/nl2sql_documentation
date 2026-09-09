@@ -17,9 +17,9 @@ Typical use (async -- Playwright's Python API is async-first):
 
     async def main():
         proc = start_server(
-            r"C:\...\nl2sql-app-closed-core\.venv\Scripts\python.exe",
+            r"C:\path\to\your-app\.venv\Scripts\python.exe",
             ["-m", "uvicorn", "api.main:app", "--port", "8030"],
-            cwd=r"C:\...\nl2sql-app-closed-core",
+            cwd=r"C:\path\to\your-app",
             port=8030,
         )
         try:
@@ -27,7 +27,7 @@ Typical use (async -- Playwright's Python API is async-first):
             async with async_playwright() as p:
                 browser = await p.chromium.launch()
                 page, logs = await new_logged_page(browser)
-                await page.goto("http://localhost:8030/page/reverseql/?db=financial")
+                await page.goto("http://localhost:8030/page/your-plugin/?db=your_db")
                 await page.wait_for_timeout(1500)
 
                 # about to click things -- protect against a real paid call
@@ -173,10 +173,13 @@ async def leaked_comment_check(page, extra_phrases: list[str] | None = None) -> 
     """True if the rendered page's visible text contains phrases that
     should only ever exist inside an HTML/JS comment. Catches exactly the
     "-- dropped a <!-- opener, a whole comment block becomes real text"
-    class of bug. Add project-specific phrases (distinctive words this
-    codebase's OWN comments use) via extra_phrases for a tighter check."""
-    phrases = ["explicit request", "explicit follow-up", "explicit bug report",
-               "found live", "real bug report"] + (extra_phrases or [])
+    class of bug. The defaults below are generic markers common across most
+    codebases -- they will NOT catch much on their own. Always pass
+    extra_phrases with words YOUR OWN comments actually use (distinctive
+    phrases from your codebase's own commenting style) for a real check --
+    this is the one part of the kit that has to be customized per project,
+    not used as-is."""
+    phrases = ["TODO", "FIXME", "HACK", "XXX", "NOTE:"] + (extra_phrases or [])
     text = await page.evaluate("document.body.innerText")
     return any(p in text for p in phrases)
 

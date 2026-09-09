@@ -25,9 +25,10 @@ invoke by name, not just a document to read.
    normally ("deep-test my plugin before I submit it", "QA the CyberDome
    page") — Claude Code matches your request to the skill's own description
    automatically, you don't have to remember the exact command.
-4. That's it — no setup specific to this repo, no dependency on Alex's own
-   plugins or code. It only needs Playwright in whatever venv you're testing
-   (step 2 below covers installing that if it's missing).
+4. That's it — no setup specific to this repo, no dependency on the plugins
+   this method was originally built from. It only needs Playwright in
+   whatever venv you're testing (see "One-time setup" in
+   `DEEP_TESTING_METHOD.md` if it's missing).
 
 ## Why this method, not just reading the code or looking at a screenshot
 
