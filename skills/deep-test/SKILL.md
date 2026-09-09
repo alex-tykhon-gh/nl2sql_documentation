@@ -9,6 +9,26 @@ Built while verifying three real plugins (CyberDome, FinOps, ReverSQL)
 against this course's actual grading core. Every check below found a real
 bug at least once — this is not a theoretical checklist.
 
+## How to actually install and use this
+
+This is a **Claude Code Skill** — a folder Claude Code recognizes and can
+invoke by name, not just a document to read.
+
+1. **Copy this whole `deep-test/` folder** (this file + `DEEP_TESTING_METHOD.md`
+   + `deep_test_kit.py`) into a `skills` folder Claude Code already looks in:
+   - **One project only:** `<your project root>\.claude\skills\deep-test\`
+   - **Every project you open:** `%USERPROFILE%\.claude\skills\deep-test\`
+     (create the `skills` folder if it doesn't exist yet)
+2. Open Claude Code in your own plugin's project (a fresh session, or restart
+   an open one so it picks up the new skill).
+3. Ask it to test your plugin — either type `/deep-test` directly, or just ask
+   normally ("deep-test my plugin before I submit it", "QA the CyberDome
+   page") — Claude Code matches your request to the skill's own description
+   automatically, you don't have to remember the exact command.
+4. That's it — no setup specific to this repo, no dependency on Alex's own
+   plugins or code. It only needs Playwright in whatever venv you're testing
+   (step 2 below covers installing that if it's missing).
+
 ## Why this method, not just reading the code or looking at a screenshot
 
 Every real bug found this way was found by **actually running the app in a
