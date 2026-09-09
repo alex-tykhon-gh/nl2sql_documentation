@@ -97,8 +97,7 @@ verification instead of judging a screenshot alone, and guardrails against
 firing a paid model call by accident. Shared here **free of charge**, for
 anyone else in the class to drop into their own plugin project and use as-is.
 
-**To use it:** copy the `skills/deep-test/` folder into your own project's
-`.claude/skills/` folder, then just ask Claude Code to test your plugin —
-see the "How to actually install and use this" section at the top of
-[`skills/deep-test/SKILL.md`](skills/deep-test/SKILL.md) for the exact steps.
+**To get it:** go straight to [`skills/deep-test/`](skills/deep-test/) —
+opening that folder shows its own README with the exact download and
+install steps.
 
